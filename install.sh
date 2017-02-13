@@ -25,6 +25,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 chsh -s /bin/zsh gabriel
 echo "Done."
 
+echo -n "VSCode..."
+sh -c "$(curl -sL https://git.io/vrLNn)"
+echo "Done."
+
+echo -n "Pyenv..."
+sh -c "$(curl -sL https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer)"
+pyenv install 3.6
+echo "Done."
+
 echo -n "Making Zsh the default shell"
 chsh -s $(which zsh)
 echo "Done."
