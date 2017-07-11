@@ -10,7 +10,7 @@ apt update -yqq
 echo "Done."
 
 echo "Installing basic tools..."
-apt -y install \
+apt install -y \
   apt-transport-https ca-certificates software-properties-common \
   curl git zsh vim gimp inkscape firefox chromium-browser vlc \
   autotools-dev automake gcc-multilib python-dev ruby-dev
@@ -81,7 +81,7 @@ echo "Done."
 
 # Installing tools
 echo "Installing workspace tools..."
-apt -y install spotify-client code skypeforlinux \
+apt install -y spotify-client code skypeforlinux \
   docker-ce nodejs dropbox google-chrome-stable slack \
   dotnet-dev-1.0.4 brave
 echo "Done."
