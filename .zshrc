@@ -85,6 +85,11 @@ fi
 alias zshconfig="vim ~/.zshrc"
 alias work="cd ~/work"
 
+###-pyenv-###
+export PATH="/root/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+###-pyenv-end###
 
 ###-virtualenv-config-###
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3

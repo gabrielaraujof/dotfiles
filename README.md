@@ -3,8 +3,13 @@ My personal dotfiles.
 
 ## Usage
 
-You can quickly setup your environment via command line with `curl`.
+You can quickly setup your environment via command line with `curl`:
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/gabrielaraujof/dotfiles/master/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/gabrielaraujof/dotfiles/master/install.sh | bash -
+```
+
+or with `wget`:
+```
+wget -qO- https://raw.githubusercontent.com/gabrielaraujof/dotfiles/master/install.sh | bash -
 ```
