@@ -31,7 +31,7 @@ ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -91,12 +91,23 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ###-pyenv-end###
 
+# Setting up global npm
+export PATH=/home/gabriel/.npm-global/bin:$PATH
+
 ###-virtualenv-config-###
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/work
 source /usr/local/bin/virtualenvwrapper.sh
 ###-virtualenv-config-end-###
+
+###-java-path-start-###
+# export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
+###-java-path-end-###
+
+###-java-path-start-###
+export ANDROID_HOME=~/.pkgs/android
+###-java-path-end-###
 
 ###-agnoster-theme-configuration-###
 DEFAULT_USER="gabriel"

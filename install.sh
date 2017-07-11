@@ -10,9 +10,9 @@ apt update -yqq
 echo "Done."
 
 echo "Installing basic tools..."
-apt -yqq install \
+apt -y install \
   apt-transport-https ca-certificates software-properties-common \
-  curl git zsh vim gimp inkscape firefox chromium-browser \
+  curl git zsh vim gimp inkscape firefox chromium-browser vlc \
   autotools-dev automake gcc-multilib python-dev ruby-dev
 echo "Done."
 
@@ -23,7 +23,7 @@ echo "Done."
 # Spotify
 echo "Adding spotify repository..."
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
+echo deb [arch=amd64] http://repository.spotify.com stable non-free | tee /etc/apt/sources.list.d/spotify.list
 echo "Done..."
 
 # VSCode
@@ -46,16 +46,30 @@ echo deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable | t
 echo "Adding Nodejs repository..."
 curl -fsSL https://deb.nodesource.com/setup_8.x | bash -
 
-
 # Dropbox
 echo "Adding Dropbox repository..."
 apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
-echo deb http://linux.dropbox.com/ubuntu xenial main | tee /etc/apt/sources.list.d/dropbox.list
+echo deb [arch=amd64] http://linux.dropbox.com/ubuntu xenial main | tee /etc/apt/sources.list.d/dropbox.list
 
 # Chrome
 echo "Adding Google Chrome repository..."
 curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-echo deb http://dl.google.com/linux/chrome/deb/ stable main | tee /etc/apt/sources.list.d/chrome.list
+echo deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main | tee /etc/apt/sources.list.d/chrome.list
+
+# Slack
+echo "Adding Slack repository..."
+curl -fsSL https://packagecloud.io/slacktechnologies/slack/gpgkey | apt-key add -
+echo deb [arch=amd64] https://packagecloud.io/slacktechnologies/slack/debian/ jessie main | tee /etc/apt/sources.list.d/slack.list
+
+# Dotnet Core
+echo "Adding .Net Core repository..."
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+echo deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main | tee /etc/apt/sources.list.d/dotnetdev.list
+
+# Brave
+echo "Adding Brave repository..."
+curl -fsSL https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc | apt-key add -
+echo deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt serena main | tee /etc/apt/sources.list.d/brave.list
 
 
 
@@ -67,8 +81,9 @@ echo "Done."
 
 # Installing tools
 echo "Installing workspace tools..."
-apt -yqq install spotify-client code skypeforlinux \
-  docker-ce nodejs dropbox google-chrome-stable
+apt -y install spotify-client code skypeforlinux \
+  docker-ce nodejs dropbox google-chrome-stable slack \
+  dotnet-dev-1.0.4 brave
 echo "Done."
 
 
@@ -98,7 +113,7 @@ echo "Done."
 
 # Creating symlinks
 echo "Copying configuration files..."
-curl -fso ~/.zshrc https://raw.githubusercontent.com/gabrielaraujof/dotfiles/master/.zshrc
+# curl -fso ~/.zshrc https://raw.githubusercontent.com/gabrielaraujof/dotfiles/master/.zshrc
 curl -fso ~/.gitconfig https://raw.githubusercontent.com/gabrielaraujof/dotfiles/master/.gitconfig
 echo "Done."
 
