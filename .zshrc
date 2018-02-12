@@ -85,30 +85,6 @@ fi
 alias zshconfig="vim ~/.zshrc"
 alias work="cd ~/work"
 
-###-pyenv-###
-export PATH="/root/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-###-pyenv-end###
-
-# Setting up global npm
-export PATH=/home/gabriel/.npm-global/bin:$PATH
-
-###-virtualenv-config-###
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/work
-source /usr/local/bin/virtualenvwrapper.sh
-###-virtualenv-config-end-###
-
-###-java-path-start-###
-# export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\)\/bin\/javac/\1/p')
-###-java-path-end-###
-
-###-java-path-start-###
-export ANDROID_HOME=~/.pkgs/android
-###-java-path-end-###
-
 ###-agnoster-theme-configuration-###
 DEFAULT_USER="gabriel"
 ###-agnoster-theme-configuration-end-###
