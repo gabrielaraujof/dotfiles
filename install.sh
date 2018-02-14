@@ -71,11 +71,11 @@ cecho "Updating package list..."
 apt-get update -yqq
 
 # # Installing tools
-cecho "Installing  tools..."
-apt-get install -yqq snapd code sublime-text skypeforlinux \
-  docker-ce nodejs dropbox google-chrome-stable slack \
-  dotnet-dev-1.0.4 brave
+cecho "Installing  apt-get packages..."
+apt-get install -y snapd code sublime-text nodejs
 
+# # Installing snap apps
+cecho "Installing snap apps..."
 snap install spotify skype slack
 
 # # OH-MY-ZSH
@@ -91,9 +91,9 @@ chsh -s $(which zsh) $(whoami)
 # echo "Done."
 
 # # Setting up docker to run without sudo
-cecho "Setting up docker..."
-groupadd docker
-gpasswd -a $USER docker
+# cecho "Setting up docker..."
+# groupadd docker
+# gpasswd -a $USER docker
 
 # # Creating symlinks
 cecho "Copying zsh profile..."
