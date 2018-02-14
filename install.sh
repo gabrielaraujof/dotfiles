@@ -16,7 +16,7 @@ cecho "Configuring system..."
 ### Basic tools ###
 
 cecho "Updating package list..."
-apt update -yqq
+apt-get update -yqq
 
 cecho "Installing basic tools..."
 apt-get install -yyq \
@@ -68,14 +68,13 @@ curl -fsSL https://deb.nodesource.com/setup_8.x | bash -
 # ### Installing packages ###
 
 cecho "Updating package list..."
-apt update -yqq
+apt-get update -yqq
 
 # # Installing tools
 cecho "Installing  tools..."
-apt install -yqq snapd code sublime-text skypeforlinux \
+apt-get install -yqq snapd code sublime-text skypeforlinux \
   docker-ce nodejs dropbox google-chrome-stable slack \
   dotnet-dev-1.0.4 brave
-echo "Done."
 
 snap install spotify skype slack
 
